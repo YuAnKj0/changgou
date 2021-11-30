@@ -60,7 +60,7 @@ public class SpuController {
      * @return
      */
     @PutMapping(value="/{id}")
-    public Result update(@RequestBody Spu spu,@PathVariable String id){
+    public Result update(@RequestBody Spu spu,@PathVariable Long id){
         spu.setId(id);
         spuService.update(spu);
         return new Result(true,StatusCode.OK,"修改成功");

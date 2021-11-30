@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FindBugsConfigurable">
+    <option name="make" value="true" />
+    <option name="effort" value="default" />
+    <option name="priority" value="Medium" />
+    <option name="excludeFilter" value="" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/code-template-master/pom.xml" />
+        <option value="$PROJECT_DIR$/changgou_parent/pom.xml" />
+        <option value="$PROJECT_DIR$/changgou_parent/changgou_service/changgou_service_goods/pom.xml" />
+        <option value="$PROJECT_DIR$/changgou_parent/changgou_service/changgou_service_business/pom.xml" />
+        <option value="$PROJECT_DIR$/changgou_parent/changgou_service/changgou_service_config/pom.xml" />
+        <option value="$PROJECT_DIR$/changgou_parent/changgou_service/changgou_service_order/pom.xml" />
+        <option value="$PROJECT_DIR$/changgou_parent/changgou_service/changgou_service_system/pom.xml" />
+        <option value="$PROJECT_DIR$/changgou_parent/changgou_service/changgou_service_user/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+  <component name="SuppressionsComponent">
+    <option name="suppComments" value="[]" />
+  </component>
+</project>
