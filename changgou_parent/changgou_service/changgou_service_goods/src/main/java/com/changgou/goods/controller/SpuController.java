@@ -196,8 +196,12 @@ public class SpuController {
         return new Result(true,StatusCode.OK,"数据 恢复成功");
     }
 
-
-    @DeleteMapping("/delete/{spuID}")
+    /**
+     * 删除商品
+     * @param spuId
+     * @return
+     */
+    @DeleteMapping("/delete/{spuId}")
     public Result delete(@PathVariable Long spuId){
         spuService.delete(spuId);
         return new Result(true,StatusCode.OK,"删除成功");
