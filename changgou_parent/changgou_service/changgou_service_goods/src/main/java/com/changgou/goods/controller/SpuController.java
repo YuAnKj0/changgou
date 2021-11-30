@@ -115,5 +115,62 @@ public class SpuController {
         return new Result(true,StatusCode.OK,"保存成功");
     }
 
+    /**
+     * 根据Spu的id查询good
+     * @param id
+     * @return
+     */
+    @GetMapping("/goods/{id}")
+    public Result<Goods> findGoodsById(@PathVariable Long id){
+        //根据id查询Goods(SPU+SKU)信息
+        Goods goods= spuService.findGoodsById(id);
+        return new Result<>(true,StatusCode.OK,"查询成功",goods);
+    }
+
+    /**
+     * 商品审核
+     * @param spuId
+     * @return
+     */
+    @PutMapping("/audit/{spuId}")
+    public Result audit(@PathVariable Long spuId){
+        spuService.audit(spuId);
+        return new Result(true,StatusCode.OK,"商品审核成功");
+    }
+
+    /**
+     * 商品下架
+     * @param spuId
+     * @return
+     */
+    @PutMapping("/pull/{spuId}")
+    public Result pull(@PathVariable Long spuId){
+        spuService.pull(spuId);
+        return new Result(true,StatusCode.OK,"下架成功");
+
+    }
+
+    /**
+     * 批量上架唉
+     * @param ids
+     * @return
+     */
+    @PutMapping("/put/many")
+    public Result putMany(@PathVariable Long[] ids){
+        int count= spuService.putMany(ids);
+        return new Result(true,StatusCode.OK,"上架"+count+"个商品");
+    }
+
+    /**
+     * 商品批量下架,-----------------------------------------还没测试，
+     * @param ids
+     * @return
+     */
+    @PutMapping("/pull/many")
+    public Result pullMany(@PathVariable Long[] ids){
+        int count = spuService.pullMany(ids);
+        return new Result(true,StatusCode.OK,"成功下架"+count+"个商品")
+    }
+
 
 }

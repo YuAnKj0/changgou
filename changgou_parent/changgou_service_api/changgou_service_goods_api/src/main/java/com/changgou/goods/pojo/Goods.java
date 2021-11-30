@@ -43,4 +43,8 @@ public class Goods implements Serializable {
     public List<Sku> getSkus() {
         return skuList;
     }
+
+    public List<Sku> setSkus(List<Sku> skus) {
+        return skus;
+    }
 }

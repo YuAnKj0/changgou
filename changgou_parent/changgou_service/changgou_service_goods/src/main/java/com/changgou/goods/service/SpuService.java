@@ -70,6 +70,39 @@ public interface SpuService {
      */
     void saveGoods(Goods goods);
 
+    /**
+     * 根据SPU的Id查询SPU及对应的SKU集合
+     * @param spuId
+     * @return
+     */
+    Goods findGoodsById(Long spuId);
+
+    /**
+     * 审核商品
+     * @param spuId
+     */
+    void audit(Long spuId);
+
+    /**
+     * 下架商品
+     * @param spuId
+     */
+    void pull(Long spuId);
+
+    /**
+     * 商品上架唉
+     * @param ids
+     * @return
+     */
+    int putMany(Long[] ids);
+
+    /**
+     * 批量下架
+     * @param ids
+     * @return
+     */
+    int pullMany(Long[] ids);
+
 
 
 
