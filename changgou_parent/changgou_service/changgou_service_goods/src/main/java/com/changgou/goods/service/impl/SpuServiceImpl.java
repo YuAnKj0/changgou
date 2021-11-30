@@ -394,4 +394,53 @@ public class SpuServiceImpl implements SpuService {
         criteria.andEqualTo("isDelete","0");
         return spuMapper.updateByExampleSelective(spu,example);
     }
+
+    /**
+     * 逻辑删除
+     * @param spuId
+     */
+    @Override
+    public void logicDelete(Long spuId){
+
+        Spu spu= spuMapper.selectByPrimaryKey(spuId);
+        //检查是否下架商品
+        if (spu.getIsMarketable().equals("0")) {
+            throw new RuntimeException("必须先下架在删除");
+        }
+        //删除商品
+        spu.setIsDelete("1");
+        //未审核
+        spu.setStatus("0");
+        spuMapper.updateByPrimaryKeySelective(spu);
+
+    }
+
+    /**
+     * 恢复商品
+     * @param spuId
+     */
+    @Override
+    public void restore(Long spuId){
+        Spu spu= spuMapper.selectByPrimaryKey(spuId);
+        //检查是否删除的商品
+        if (!spu.getIsDelete().equals("1")) {
+            throw new RuntimeException("该商品未删除");
+        }
+        spu.setStatus("0");
+        spu.setIsDelete("0");
+        spuMapper.updateByPrimaryKeySelective(spu);
+    }
+
+    /**
+     * 删除商品
+     * @param spuId
+     */
+    @Override
+    public void delete(Long spuId){
+        Spu spu= spuMapper.selectByPrimaryKey(spuId);
+        if (!spu.getIsDelete().equals("1")) {
+            throw new RuntimeException("此商品不能删除");
+        }
+        spuMapper.deleteByPrimaryKey(spuId);
+    }
 }

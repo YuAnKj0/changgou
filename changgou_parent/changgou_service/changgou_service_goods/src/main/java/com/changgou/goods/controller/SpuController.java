@@ -92,6 +92,8 @@ public class SpuController {
 
     /***
      * 分页搜索实现
+     * 根据查询的条件 分页查询 并返回分页结果即可。
+     * 分页查询 采用 pagehelper ，条件查询  通过map进行封装传递给后台即可。
      * @param searchMap
      * @param page
      * @param size
@@ -169,7 +171,37 @@ public class SpuController {
     @PutMapping("/pull/many")
     public Result pullMany(@PathVariable Long[] ids){
         int count = spuService.pullMany(ids);
-        return new Result(true,StatusCode.OK,"成功下架"+count+"个商品")
+        return new Result(true,StatusCode.OK,"成功下架"+count+"个商品");
+    }
+
+    /**
+     * 逻辑删除
+     * @param id
+     * @return
+     */
+    @DeleteMapping("/logic/delete/{id}")
+    public Result logicDelete(@PathVariable Long id){
+        spuService.logicDelete(id);
+        return new Result(true,StatusCode.OK,"删除成功");
+    }
+
+    /**
+     * 恢复数据
+     * @param spuId
+     * @return
+     */
+    @PutMapping("/restore/{spuId}")
+    public Result restore(@PathVariable Long spuId){
+        spuService.restore(spuId);
+        return new Result(true,StatusCode.OK,"数据 恢复成功");
+    }
+
+
+    @DeleteMapping("/delete/{spuID}")
+    public Result delete(@PathVariable Long spuId){
+        spuService.delete(spuId);
+        return new Result(true,StatusCode.OK,"删除成功");
+
     }
 
 

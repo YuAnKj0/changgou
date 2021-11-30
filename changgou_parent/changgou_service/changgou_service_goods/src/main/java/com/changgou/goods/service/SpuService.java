@@ -103,6 +103,23 @@ public interface SpuService {
      */
     int pullMany(Long[] ids);
 
+    /**
+     * 逻辑删除
+     * @param spuId
+     */
+    void logicDelete(Long spuId);
+
+    /**
+     * 恢复被删除的商品(逻辑删除)
+     * @param id
+     */
+    void restore(Long id);
+
+    /**
+     * 删除商品
+     * @param spuId
+     */
+    void delete(Long spuId);
 
 
 
