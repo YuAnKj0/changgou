@@ -1,5 +1,6 @@
 package com.changgou.system.controller;
 
+
 import com.changgou.system.pojo.Admin;
 import com.changgou.system.service.AdminService;
 import com.github.pagehelper.Page;
@@ -27,7 +28,7 @@ public class AdminController {
      */
     @GetMapping
     public Result findAll(){
-        List<Admin> adminList = adminService.findAll();
+        List<Admin> adminList=adminService.findAll();
         return new Result(true, StatusCode.OK,"查询成功",adminList) ;
     }
 

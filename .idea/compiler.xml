@@ -20,6 +20,7 @@
         <module name="changgou_service_order" />
         <module name="changgou_service_goods_api" />
         <module name="changgou_web" />
+        <module name="changgou-service-canal" />
         <module name="changgou_gateway" />
         <module name="changgou_canal" />
         <module name="changgou_service_goods" />
@@ -29,6 +30,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="changgou-service-canal" target="8" />
       <module name="changgou_canal" target="1.8" />
       <module name="changgou_common" target="1.8" />
       <module name="changgou_common_db" target="1.8" />
@@ -41,7 +43,7 @@
       <module name="changgou_service_business_api" target="1.8" />
       <module name="changgou_service_config" target="1.8" />
       <module name="changgou_service_config_api" target="1.8" />
-      <module name="changgou_service_file" target="1.8" />
+      <module name="changgou_service_file" target="8" />
       <module name="changgou_service_goods" target="1.8" />
       <module name="changgou_service_goods_api" target="1.8" />
       <module name="changgou_service_order" target="1.8" />
@@ -51,11 +53,12 @@
       <module name="changgou_service_user" target="1.8" />
       <module name="changgou_service_user_api" target="1.8" />
       <module name="changgou_web" target="1.8" />
-      <module name="code-template" target="1.8" />
+      <module name="code-template" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="changgou-service-canal" options="-parameters" />
       <module name="changgou_canal" options="-parameters" />
       <module name="changgou_common" options="-parameters" />
       <module name="changgou_common_db" options="-parameters" />
