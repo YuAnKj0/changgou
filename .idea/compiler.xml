@@ -12,8 +12,10 @@
         <module name="changgou_service_config" />
         <module name="changgou_service_business_api" />
         <module name="changgou_service_user_api" />
+        <module name="changgou-service-content" />
         <module name="changgou_service_system_api" />
         <module name="changgou_service_business" />
+        <module name="changgou_service_content_api" />
         <module name="changgou_common" />
         <module name="changgou_service_file" />
         <module name="changgou_service_system" />
@@ -31,6 +33,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="changgou-service-canal" target="8" />
+      <module name="changgou-service-content" target="1.8" />
       <module name="changgou_canal" target="1.8" />
       <module name="changgou_common" target="1.8" />
       <module name="changgou_common_db" target="1.8" />
@@ -43,6 +46,7 @@
       <module name="changgou_service_business_api" target="1.8" />
       <module name="changgou_service_config" target="1.8" />
       <module name="changgou_service_config_api" target="1.8" />
+      <module name="changgou_service_content_api" target="8" />
       <module name="changgou_service_file" target="8" />
       <module name="changgou_service_goods" target="1.8" />
       <module name="changgou_service_goods_api" target="1.8" />
@@ -59,6 +63,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="changgou-service-canal" options="-parameters" />
+      <module name="changgou-service-content" options="-parameters" />
       <module name="changgou_canal" options="-parameters" />
       <module name="changgou_common" options="-parameters" />
       <module name="changgou_common_db" options="-parameters" />
@@ -68,6 +73,7 @@
       <module name="changgou_service_business_api" options="-parameters" />
       <module name="changgou_service_config" options="-parameters" />
       <module name="changgou_service_config_api" options="-parameters" />
+      <module name="changgou_service_content_api" options="-parameters" />
       <module name="changgou_service_file" options="-parameters" />
       <module name="changgou_service_goods" options="-parameters" />
       <module name="changgou_service_goods_api" options="-parameters" />
