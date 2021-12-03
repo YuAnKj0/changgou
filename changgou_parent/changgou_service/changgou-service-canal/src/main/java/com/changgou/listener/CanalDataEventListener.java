@@ -3,15 +3,17 @@ package com.changgou.listener;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.otter.canal.protocol.CanalEntry;
-import com.changgou.content.feign.ContentFeign;
-import com.changgou.content.pojo.Content;
+
 import com.xpand.starter.canal.annotation.*;
 import entity.Result;
+import feign.ContentFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import pojo.Content;
 
 
 import java.util.List;
+
 
 
 /**

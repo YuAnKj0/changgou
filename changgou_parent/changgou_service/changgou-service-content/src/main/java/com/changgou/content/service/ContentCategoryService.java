@@ -1,7 +1,8 @@
 package com.changgou.content.service;
 
-import com.changgou.content.pojo.ContentCategory;
+
 import com.github.pagehelper.PageInfo;
+import pojo.ContentCategory;
 
 import java.util.List;
 

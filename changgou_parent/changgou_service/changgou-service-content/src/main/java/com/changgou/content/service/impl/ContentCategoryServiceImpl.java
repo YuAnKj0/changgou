@@ -1,13 +1,13 @@
 package com.changgou.content.service.impl;
 
 import com.changgou.content.dao.ContentCategoryMapper;
-import com.changgou.content.pojo.ContentCategory;
 import com.changgou.content.service.ContentCategoryService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+import pojo.ContentCategory;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;

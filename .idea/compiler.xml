@@ -15,7 +15,6 @@
         <module name="changgou_service_order" />
         <module name="changgou-service-canal" />
         <module name="changgou_gateway" />
-        <module name="changgou_canal" />
         <module name="code-template" />
         <module name="changgou_service_config_api" />
         <module name="changgou_service_search_api" />

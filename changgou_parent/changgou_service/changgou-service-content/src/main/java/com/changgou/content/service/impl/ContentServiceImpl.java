@@ -1,11 +1,13 @@
 package com.changgou.content.service.impl;
 
-import com.changgou.content.pojo.Content;
+
+import com.changgou.content.dao.ContentMapper;
 import com.changgou.content.service.ContentService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
+import pojo.Content;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
@@ -133,7 +135,7 @@ public class ContentServiceImpl implements ContentService {
      */
     @Override
     public List<Content> findAll() {
-        return contentMapper.selectAll;
+        return contentMapper.selectAll();
     }
 
     /**

@@ -1,12 +1,12 @@
 package com.changgou.content.controller;
 
-import com.changgou.content.pojo.Content;
 import com.changgou.content.service.ContentService;
 import com.github.pagehelper.PageInfo;
 import entity.Result;
 import entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pojo.Content;
 
 import java.util.List;
 
