@@ -1,4 +1,4 @@
-package com.changgou.seach;
+package com.changgou.search;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

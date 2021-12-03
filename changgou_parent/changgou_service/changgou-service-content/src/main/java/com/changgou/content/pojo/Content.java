@@ -7,4 +7,6 @@ package com.changgou.content.pojo;
  * @date 2021/12/2 10:09
  */
 public class Content {
+    public void setId(Long id) {
+    }
 }
