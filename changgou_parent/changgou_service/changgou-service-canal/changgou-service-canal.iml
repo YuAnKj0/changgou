@@ -13,7 +13,9 @@
     <facet type="jpa" name="JPA">
       <configuration>
         <setting name="validation-enabled" value="true" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="changgou-service-canal" />
+        </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>
@@ -64,7 +66,6 @@
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:2.6.1" level="project" />
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
     <orderEntry type="module" module-name="changgou_service_content_api" />
-    <orderEntry type="module" module-name="changgou-service-content" />
     <orderEntry type="library" name="Maven: javax.persistence:persistence-api:1.0" level="project" />
     <orderEntry type="module" module-name="changgou_common_db" />
     <orderEntry type="module" module-name="changgou_common" />

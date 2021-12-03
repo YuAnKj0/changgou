@@ -87,6 +87,10 @@ public class SkuServiceImpl implements SkuService {
         // size 指定查询结果的数量 默认是10个
         nativeSearchQueryBuilder.addAggregation(AggregationBuilders.terms("skuCategorygroup").field("categoryName").size(50));
 
+        //设置分组条件，商品品牌
+        nativeSearchQueryBuilder.addAggregation(AggregationBuilders.terms("skuBrandgroup").field("brandName").size(50));
+
+
         //匹配查询  先分词 再查询  主条件查询
         //参数1 指定要搜索的字段
         //参数2 要搜索的值(先分词 再搜索)
@@ -98,13 +102,19 @@ public class SkuServiceImpl implements SkuService {
         //5.执行查询
         AggregatedPage<SkuInfo> skuPage=elasticsearchTemplate.queryForPage(query,SkuInfo.class);
 
-        //获取聚合结果  获取商品分类的列表数据
-        StringTerms stringTerms=(StringTerms) skuPage.getAggregations("skuCategorygroup");
-        List<String> categoryList=getStringsCategoryList(stringTerms);
+        //获取分组结果，商品品牌
+        StringTerms stringTermBrand=skuPage.getAggregations("skuBrandgroup");
 
+        //获取聚合结果  获取商品分类的列表数据
+        StringTerms stringTermSpec=(StringTerms) skuPage.getAggregations("skuCategorygroup");
+
+        List<String> categoryList=getStringsCategoryList(stringTermSpec);
+
+        List<String> brandList= getStringsBrand(stringTermBrand );
         //6.返回结果
         Map resultMap=new HashMap();
         resultMap.put("categoryList",categoryList);
+        resultMap.put("brandList",brandList);
         resultMap.put("rows",skuPage.getContent());
         resultMap.put("total",skuPage.getTotalElements());
         resultMap.put("totalPages",skuPage.getTotalPages());
@@ -112,8 +122,11 @@ public class SkuServiceImpl implements SkuService {
         return resultMap;
     }
 
-
-
+    /**
+     * 获取品牌列表
+     * @param stringTerms
+     * @return
+     */
     private List<String> getStringsCategoryList(StringTerms stringTerms){
 
         List<String> categoryList=new ArrayList<>();
@@ -124,6 +137,22 @@ public class SkuServiceImpl implements SkuService {
             }
         }
         return categoryList;
+    }
+
+    /**
+     * 获取分类列表数据
+     * @param stringTermBrand
+     * @return
+     */
+    private List<String> getStringsBrand(StringTerms stringTermBrand) {
+        List<String> brandList=new ArrayList<>();
+        if (stringTermBrand!=null) {
+            for (StringTerms.Bucket bucket : stringTermBrand.getBuckets()) {
+                brandList.add(bucket.getKeyAsString());
+            }
+        }
+        return brandList;
+
     }
 
 }
