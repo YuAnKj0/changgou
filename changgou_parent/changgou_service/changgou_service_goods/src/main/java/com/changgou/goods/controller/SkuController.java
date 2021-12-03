@@ -103,5 +103,16 @@ public class SkuController {
         return new Result(true,StatusCode.OK,"查询成功",pageResult);
     }
 
+    /**
+     * 根据审核状态查询Sku
+     * @param status
+     * @return
+     */
+    @GetMapping("status/{status}")
+    public Result<List<Sku>> findByStatus(@PathVariable String status){
+        List<Sku> skuList= skuService.findByStatus(status);
+        return new Result<>(true,StatusCode.OK,"查询成功",skuList);
+    }
+
 
 }

@@ -64,6 +64,12 @@ public interface SkuService {
     Page<Sku> findPage(Map<String, Object> searchMap, int page, int size);
 
 
+    /**
+     * 根据状态查询sku列表
+     * @param status
+     * @return
+     */
+    List<Sku> findByStatus(String status);
 
 
 }

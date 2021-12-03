@@ -7,6 +7,8 @@
     <file url="file://$PROJECT_DIR$/changgou_parent/changgou_service/changgou-service-canal/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/changgou_parent/changgou_service/changgou-service-canal/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/changgou_parent/changgou_service/changgou-service-content/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_parent/changgou_service/changgou-service-search/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_parent/changgou_service/changgou-service-search/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/changgou_parent/changgou_service/changgou_service_business/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/changgou_parent/changgou_service/changgou_service_business/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/changgou_parent/changgou_service/changgou_service_config/src/main/java" charset="UTF-8" />
@@ -21,6 +23,8 @@
     <file url="file://$PROJECT_DIR$/changgou_parent/changgou_service_api/changgou_service_content_api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/changgou_parent/changgou_service_api/changgou_service_goods_api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/changgou_parent/changgou_service_api/changgou_service_order_api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_parent/changgou_service_api/changgou_service_search_api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_parent/changgou_service_api/changgou_service_search_api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/changgou_parent/changgou_service_api/changgou_service_system_api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/changgou_parent/changgou_service_api/changgou_service_user_api/src/main/java" charset="UTF-8" />
   </component>

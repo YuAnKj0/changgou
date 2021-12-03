@@ -7,6 +7,7 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
@@ -102,6 +103,14 @@ public class SkuServiceImpl implements SkuService {
         PageHelper.startPage(page,size);
         Example example = createExample(searchMap);
         return (Page<Sku>)skuMapper.selectByExample(example);
+    }
+
+
+    @Override
+    public List<Sku> findByStatus(String status) {
+        Sku sku=new Sku();
+        sku.setStatus(status);
+        return skuMapper.select(sku);
     }
 
     /**
