@@ -3,14 +3,16 @@ package com.changgou.listener;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.otter.canal.protocol.CanalEntry;
+import com.changgou.content.feign.ContentFeign;
 import com.changgou.content.pojo.Content;
 import com.xpand.starter.canal.annotation.*;
 import entity.Result;
-import feign.ContentFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
+
 import java.util.List;
+
 
 /**
  * @author Ykj
@@ -27,35 +29,35 @@ public class CanalDataEventListener {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
-    /**
-     * 增加数据监听
-     * @param eventType
-     * @param rowData
-     */
-    @InsertListenPoint
-    public void onEventInsert(CanalEntry.EventType eventType,CanalEntry.RowData rowData){
-        rowData.getAfterColumnsList().forEach((c) -> System.out.println("By--Annotation: " + c.getName() + " ::   " + c.getValue()));
-    }
-
-    /**
-     * 修改数据监听
-     * @param rowData
-     */
-    @UpdateListenPoint
-    public void onEventUpdate(CanalEntry.RowData rowData){
-
-        System.out.println("UpdateListenPoint");
-        rowData.getAfterColumnsList().forEach((c)->System.out.println("By--Annotation: "+c.getName()+"::  "+c.getValue()));
-    }
-
-    /**
-     * 删除数据监听
-     * @param eventType
-     */
-    @DeleteListenPoint
-    public void onEventDelete(CanalEntry.EventType eventType){
-        System.out.println("DeleteListenPoint");
-    }
+//    /**
+//     * 增加数据监听
+//     * @param eventType
+//     * @param rowData
+//     */
+//    @InsertListenPoint
+//    public void onEventInsert(CanalEntry.EventType eventType,CanalEntry.RowData rowData){
+//        rowData.getAfterColumnsList().forEach((c) -> System.out.println("By--Annotation: " + c.getName() + " ::   " + c.getValue()));
+//    }
+//
+//    /**
+//     * 修改数据监听
+//     * @param rowData
+//     */
+//    @UpdateListenPoint
+//    public void onEventUpdate(CanalEntry.RowData rowData){
+//
+//        System.out.println("UpdateListenPoint");
+//        rowData.getAfterColumnsList().forEach((c)->System.out.println("By--Annotation: "+c.getName()+"::  "+c.getValue()));
+//    }
+//
+//    /**
+//     * 删除数据监听
+//     * @param eventType
+//     */
+//    @DeleteListenPoint
+//    public void onEventDelete(CanalEntry.EventType eventType){
+//        System.out.println("DeleteListenPoint");
+//    }
 
     /**
      * 自定义的监听
@@ -73,8 +75,9 @@ public class CanalDataEventListener {
         String categoryId=getColumnValue(eventType,rowData);
         //调用feign获取给分类下的所有广告的集合
         Result<List<Content>> categoryResult=contentFeign.findByCategory(Long.valueOf(categoryId));
-        List<Content> data=categoryResult.getData();
+
         //使用redisTemplate存储到redis中
+        List<Content> data=categoryResult.getData();
         stringRedisTemplate.boundValueOps("content_"+categoryId).set(JSON.toJSONString(data));
     }
 

@@ -1,6 +1,6 @@
-package com.changgou.seach.controller;
+package com.changgou.search.controller;
 
-import com.changgou.seach.service.SkuService;
+import com.changgou.search.service.SkuService;
 import entity.Result;
 import entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,8 @@ import java.util.Map;
 /**
  * @author Ykj
  * @ClassName SkuController
- * @Discription
+ * @Discription 用于接收页面传递的请求 来测试 导入数据,实现搜索的功能
+ *
  * @date 2021/12/3 9:53
  */
 
@@ -22,10 +23,10 @@ public class SkuController {
     @Autowired
     private SkuService skuService;
 
-    @GetMapping("/import")
-    public Result search(){
-        skuService.importSku();
-        return new Result(true, StatusCode.OK,"导入数据到索引库中成功！");
+    @RequestMapping("/import")
+    public Result importEs(){
+        skuService.importEs();
+        return new Result(true, StatusCode.OK, "导入成功");
     }
 
     @PostMapping
