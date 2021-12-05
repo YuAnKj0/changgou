@@ -1,6 +1,6 @@
 package com.changgou.search.pojo;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;

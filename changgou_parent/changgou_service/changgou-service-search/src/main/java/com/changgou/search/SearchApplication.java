@@ -15,7 +15,7 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
  */
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @EnableEurekaClient
-@EnableFeignClients(basePackages = "com.changgou.search.feign")
+@EnableFeignClients(basePackages = "com.changgou.goods.feign")
 @EnableElasticsearchRepositories(basePackages = "com.changgou.search.dao")
 public class SearchApplication {
     public static void main(String[] args) {

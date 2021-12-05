@@ -1,6 +1,7 @@
 server:
   port: 9004
 spring:
+
   application:
     name: business
   datasource:
@@ -10,6 +11,10 @@ spring:
     password: 123456
   main:
     allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
+
+  rabbitmq:
+      host: 192.168.211.132
+
 eureka:
   client:
     service-url:

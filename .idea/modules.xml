@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/changgou.iml" filepath="$PROJECT_DIR$/.idea/changgou.iml" />
-      <module fileurl="file://$PROJECT_DIR$/changgou_parent/changgou_service/changgou-service-canal/changgou-service-canal.iml" filepath="$PROJECT_DIR$/changgou_parent/changgou_service/changgou-service-canal/changgou-service-canal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/changgou_parent/changgou-canal/changgou-canal.iml" filepath="$PROJECT_DIR$/changgou_parent/changgou-canal/changgou-canal.iml" />
       <module fileurl="file://$PROJECT_DIR$/changgou_parent/changgou_service/changgou-service-content/changgou-service-content.iml" filepath="$PROJECT_DIR$/changgou_parent/changgou_service/changgou-service-content/changgou-service-content.iml" />
       <module fileurl="file://$PROJECT_DIR$/changgou_parent/changgou_service/changgou-service-search/changgou-service-search.iml" filepath="$PROJECT_DIR$/changgou_parent/changgou_service/changgou-service-search/changgou-service-search.iml" />
       <module fileurl="file://$PROJECT_DIR$/changgou_parent/changgou_common/changgou_common.iml" filepath="$PROJECT_DIR$/changgou_parent/changgou_common/changgou_common.iml" />
