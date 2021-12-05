@@ -24,7 +24,7 @@ public class RabbitMQConfig {
     //定义交换机名称
     public static final String GOODS_UP_EXCHANGE="goods_up_exchange";
 
-        public static final String SEARCH_ADD_QUEUE = "search_add_queue";
+    public static final String SEARCH_ADD_QUEUE = "search_add_queue";
 
     public static final String AD_UPDATE_QUEUE = "ad_update_queue";
 

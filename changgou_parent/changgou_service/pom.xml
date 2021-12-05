@@ -23,7 +23,6 @@
         <module>changgou_service_system</module>
         <module>changgou_service_user</module>
         <module>changgou_service_config</module>
-        <module>changgou-service-canal</module>
         <module>changgou-service-content</module>
         <module>changgou-service-search</module>
     </modules>
