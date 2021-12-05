@@ -1,8 +1,8 @@
 package com.changgou.canal.listener;
 
+import com.alibaba.otter.canal.protocol.CanalEntry;
 import com.changgou.canal.config.RabbitMQConfig;
 import com.xpand.starter.canal.annotation.CanalEventListener;
-import com.alibaba.otter.canal.protocol.CanalEntry;
 import com.xpand.starter.canal.annotation.ListenPoint;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,5 @@
 package com.changgou.goods.service;
 
-import com.changgou.goods.dao.BrandMapper;
 import com.changgou.goods.pojo.Brand;
 import com.github.pagehelper.Page;
 import io.lettuce.core.dynamic.annotation.Param;

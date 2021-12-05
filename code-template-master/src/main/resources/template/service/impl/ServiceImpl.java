@@ -1,14 +1,6 @@
-package ${package_service_impl};
-import ${package_mapper}.${Table}Mapper;
-import ${package_pojo}.${Table};
-import ${package_service}.${Table}Service;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
-import org.springframework.beans.factory.annotation.Autowired;
+package $
+
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
-import tk.mybatis.mapper.entity.Example;
-import java.util.List;
 /****
  * @Author:shenkunlin
  * @Description:${Table}业务层接口实现类

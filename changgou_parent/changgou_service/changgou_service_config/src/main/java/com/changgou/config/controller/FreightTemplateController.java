@@ -1,12 +1,14 @@
 package com.changgou.config.controller;
+
+import com.changgou.config.pojo.FreightTemplate;
+import com.changgou.config.service.FreightTemplateService;
+import com.github.pagehelper.Page;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
-import com.changgou.config.service.FreightTemplateService;
-import com.changgou.config.pojo.FreightTemplate;
-import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Map;
 @RestController

@@ -1,8 +1,8 @@
 package com.changgou.config.service.impl;
 
 import com.changgou.config.dao.FreightTemplateMapper;
-import com.changgou.config.service.FreightTemplateService;
 import com.changgou.config.pojo.FreightTemplate;
+import com.changgou.config.service.FreightTemplateService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;

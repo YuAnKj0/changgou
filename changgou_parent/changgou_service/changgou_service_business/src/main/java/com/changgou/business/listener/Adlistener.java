@@ -1,7 +1,6 @@
 package com.changgou.business.listener;
 
 import okhttp3.*;
-import okhttp3.Request.Builder;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 

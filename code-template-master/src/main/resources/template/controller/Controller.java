@@ -1,12 +1,12 @@
-package ${package_controller};
-import ${package_pojo}.${Table};
-import ${package_service}.${Table}Service;
+package $
+
+import $;
 import com.github.pagehelper.PageInfo;
 import entity.Result;
 import entity.StatusCode;
-<#if swagger==true>import io.swagger.annotations.*;</#if>
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 /****

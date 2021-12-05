@@ -1,8 +1,8 @@
 package com.changgou.user.service.impl;
 
 import com.changgou.user.dao.CitiesMapper;
-import com.changgou.user.service.CitiesService;
 import com.changgou.user.pojo.Cities;
+import com.changgou.user.service.CitiesService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;

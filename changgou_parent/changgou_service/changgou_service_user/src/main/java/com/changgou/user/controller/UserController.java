@@ -1,12 +1,14 @@
 package com.changgou.user.controller;
+
+import com.changgou.user.pojo.User;
+import com.changgou.user.service.UserService;
+import com.github.pagehelper.Page;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
-import com.changgou.user.service.UserService;
-import com.changgou.user.pojo.User;
-import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Map;
 @RestController

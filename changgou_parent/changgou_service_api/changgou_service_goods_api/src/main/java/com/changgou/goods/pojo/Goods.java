@@ -1,6 +1,5 @@
 package com.changgou.goods.pojo;
 
-import java.io.PrintStream;
 import java.io.Serializable;
 import java.util.List;
 

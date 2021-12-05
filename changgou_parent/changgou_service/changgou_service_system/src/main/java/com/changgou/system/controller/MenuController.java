@@ -1,12 +1,14 @@
 package com.changgou.system.controller;
+
+import com.changgou.pojo.Menu;
+import com.changgou.system.service.MenuService;
+import com.github.pagehelper.Page;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
-import com.changgou.system.service.MenuService;
-import com.changgou.pojo.Menu;
-import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Map;
 @RestController

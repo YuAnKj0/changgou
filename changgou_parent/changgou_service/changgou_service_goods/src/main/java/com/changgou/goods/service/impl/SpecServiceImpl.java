@@ -4,11 +4,10 @@ package com.changgou.goods.service.impl;
 import com.changgou.goods.dao.CategoryMapper;
 import com.changgou.goods.dao.SpecMapper;
 import com.changgou.goods.pojo.Category;
-import com.changgou.goods.service.SpecService;
 import com.changgou.goods.pojo.Spec;
+import com.changgou.goods.service.SpecService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;

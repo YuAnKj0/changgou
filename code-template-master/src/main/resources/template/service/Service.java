@@ -1,6 +1,8 @@
-package ${package_service};
-import ${package_pojo}.${Table};
+package $
+
+import $;
 import com.github.pagehelper.PageInfo;
+
 import java.util.List;
 /****
  * @Author:shenkunlin

@@ -1,8 +1,8 @@
 package com.changgou.user.service.impl;
 
 import com.changgou.user.dao.ProvincesMapper;
-import com.changgou.user.service.ProvincesService;
 import com.changgou.user.pojo.Provinces;
+import com.changgou.user.service.ProvincesService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,7 +2,6 @@ package com.changgou.goods.service;
 
 import com.changgou.goods.pojo.Spec;
 import com.github.pagehelper.Page;
-import io.lettuce.core.dynamic.annotation.Param;
 
 import java.util.List;
 import java.util.Map;
