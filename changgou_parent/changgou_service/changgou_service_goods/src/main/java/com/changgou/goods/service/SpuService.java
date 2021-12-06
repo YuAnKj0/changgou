@@ -75,7 +75,7 @@ public interface SpuService {
      * @param spuId
      * @return
      */
-    Goods findGoodsById(Long spuId);
+    Goods findGoodsById(String spuId);
 
     /**
      * 审核商品

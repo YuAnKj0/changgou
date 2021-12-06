@@ -5,7 +5,8 @@ import java.util.List;
 
 public class Page <T> implements Serializable{
 
-	// 页数（第几页）
+    public static int pageSize;
+    // 页数（第几页）
 	private long currentpage;
 
 	// 查询数据库里面对应的数据有多少条

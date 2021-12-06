@@ -6,13 +6,6 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/**
- * @author Ykj
- * @ClassName GoodsDelListener
- * @Discription
- * @date 2021/12/6 13:23
- */
-
 @Component
 public class GoodsDelListener {
 
@@ -21,11 +14,9 @@ public class GoodsDelListener {
 
     @RabbitListener(queues = RabbitMQConfig.SEARCH_DEL_QUEUE)
     public void receiveMessage(String spuId){
+        System.out.println("删除索引库监听类,接收到的spuId:  "+spuId);
 
-        System.out.println("删除索引库监听类，接收到的spuId:"+spuId);
-
-        //调用业务层完成索引库的数据删除
+        //调用业务层完成索引库数据删除
         esManagerService.delDataBySpuId(spuId);
-
     }
 }

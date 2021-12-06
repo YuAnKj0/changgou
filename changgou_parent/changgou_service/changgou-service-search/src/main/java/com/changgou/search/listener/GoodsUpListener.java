@@ -6,12 +6,6 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/**
- * @author Ykj
- * @ClassName GoodsUpListener
- * @Discription
- * @date 2021/12/6 11:17
- */
 @Component
 public class GoodsUpListener {
 
@@ -20,8 +14,9 @@ public class GoodsUpListener {
 
     @RabbitListener(queues = RabbitMQConfig.SEARCH_ADD_QUEUE)
     public void receiveMessage(String spuId){
-        //查询skuList,并导入到索引库
+        System.out.println("接收到的消息为:   "+spuId);
+
+        //查询skulist,并导入到索引库
         esManagerService.importDataBySpuId(spuId);
     }
-
 }

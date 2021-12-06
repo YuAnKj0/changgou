@@ -296,7 +296,7 @@ public class SpuServiceImpl implements SpuService {
     }
 
     @Override
-    public Goods findGoodsById(Long spuId) {
+    public Goods findGoodsById(String spuId) {
 
         //查询SPU
         Spu spu= spuMapper.selectByPrimaryKey(spuId);

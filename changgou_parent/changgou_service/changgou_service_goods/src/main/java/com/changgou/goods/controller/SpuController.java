@@ -125,7 +125,7 @@ public class SpuController {
      * @return
      */
     @GetMapping("/goods/{id}")
-    public Result<Goods> findGoodsById(@PathVariable Long id){
+    public Result<Goods> findGoodsById(@PathVariable String id){
         //根据id查询Goods(SPU+SKU)信息
         Goods goods= spuService.findGoodsById(id);
         return new Result<>(true,StatusCode.OK,"查询成功",goods);
