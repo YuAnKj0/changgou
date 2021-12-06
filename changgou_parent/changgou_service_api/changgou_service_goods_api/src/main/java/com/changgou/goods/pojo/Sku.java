@@ -37,7 +37,7 @@ public class Sku implements Serializable {
 	private String status;//商品状态 1-正常，2-下架，3-删除
 
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 	public void setId(long id) {

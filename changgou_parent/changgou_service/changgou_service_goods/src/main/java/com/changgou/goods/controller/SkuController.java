@@ -9,6 +9,7 @@ import entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @RestController
@@ -114,6 +115,18 @@ public class SkuController {
     public Result<List<Sku>> findByStatus(@PathVariable String status){
         List<Sku> skuList= skuService.findByStatus(status);
         return new Result<>(true,StatusCode.OK,"查询成功",skuList);
+    }
+
+    @GetMapping("/spu/{spuId}")
+    public List<Sku> findSkuListBySpuId(@PathVariable("spuId") Long spuId){
+
+        Map<String,Object> searchMap=new HashMap<>();
+        if (!"all".equals(spuId)) {
+            searchMap.put("spuId",spuId);
+        }
+        searchMap.put("status",1);
+        List<Sku> skuList = skuService.findList(searchMap);
+        return skuList;
     }
 
 

@@ -40,6 +40,13 @@ public class SkuListener {
             rabbitTemplate.convertAndSend(RabbitMQConfig.GOODS_UP_EXCHANGE,"",newData.get("id"));
 
         }
+        //获取最新下架的商品 0->1
+        if ("1".equals(oldData.get("is_marketable"))&&"0".equals(newData.get("is_marketable"))) {
+            //将商品的spuid发送到mq
+            rabbitTemplate.convertAndSend(RabbitMQConfig.GOODS_DOWN_EXCHANGE,"",newData.get("id"));
+
+        }
+
 
 
     }

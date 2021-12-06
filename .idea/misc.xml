@@ -15,7 +15,6 @@
         <option value="$PROJECT_DIR$/changgou_parent/changgou_service/changgou_service_business/pom.xml" />
         <option value="$PROJECT_DIR$/changgou_parent/changgou_service/changgou_service_config/pom.xml" />
         <option value="$PROJECT_DIR$/changgou_parent/changgou_service/changgou_service_order/pom.xml" />
-        <option value="$PROJECT_DIR$/changgou_parent/changgou_service/changgou_service_system/pom.xml" />
         <option value="$PROJECT_DIR$/changgou_parent/changgou_service/changgou_service_user/pom.xml" />
         <option value="$PROJECT_DIR$/changgou_parent/changgou_service_api/changgou_service_search_api/pom.xml" />
       </list>
@@ -23,6 +22,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/changgou_parent/changgou_canal/pom.xml" />
+        <option value="$PROJECT_DIR$/changgou_parent/changgou_service_api/changgou_service_system_api/pom.xml" />
       </set>
     </option>
   </component>

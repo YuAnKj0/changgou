@@ -102,14 +102,14 @@ public class SkuServiceImpl implements SkuService {
         AggregatedPage<SkuInfo> skuPage=elasticsearchTemplate.queryForPage(query,SkuInfo.class);
 
         //获取分组结果，商品品牌
-        StringTerms stringTermBrand=skuPage.getAggregations("skuBrandgroup");
+        StringTerms stringTermBrand= (StringTerms) skuPage.getAggregation("skuBrandgroup");
 
         //获取聚合结果  获取商品分类的列表数据
-        StringTerms stringTermSpec=(StringTerms) skuPage.getAggregations("skuCategorygroup");
+        StringTerms stringTermSpec = (StringTerms) skuPage.getAggregation("skuCategorygroup");
 
         List<String> categoryList=getStringsCategoryList(stringTermSpec);
 
-        List<String> brandList= getStringsBrand(stringTermBrand );
+        List<String> brandList= getStringsBrand(stringTermBrand);
         //6.返回结果
         Map resultMap=new HashMap();
         resultMap.put("categoryList",categoryList);

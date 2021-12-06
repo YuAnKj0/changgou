@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
-@FeignClient
+@FeignClient(name = "goods")
 @RequestMapping("/sku")
 public interface SkuFeign {
     @GetMapping("/status/{status}")
     public Result<List<Sku>> findByStatus(@PathVariable(name="status") String status);
+
+    @GetMapping("/sku/spu/{spuId}")
+    public List<Sku> findSkuListBySpuId(@PathVariable("spuId") String spuId);
 }
