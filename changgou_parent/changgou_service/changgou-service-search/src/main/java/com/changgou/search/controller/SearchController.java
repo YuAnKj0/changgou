@@ -35,9 +35,29 @@ public class SearchController {
         model.addAttribute("result",resultMap);
         model.addAttribute("searchMap",searchMap);
 
+        //拼装url
+        StringBuilder url=new StringBuilder("/search/list");
+        if (searchMap!=null&&searchMap.size()>0) {
+            //是由查询条件
+            url.append("?");
+            for (String paramKey : searchMap.keySet()) {
+                if ("sortRule".equals(paramKey)&&"sortField".equals(paramKey)&&"pageNum".equals(paramKey)) {
+                    url.append(paramKey).append("=").append(searchMap.get(paramKey)).append("&");
+                }
+            }
+            String urlString = url.toString();
+            //去除路径上的最后一个&
+            urlString=urlString.substring(0,urlString.length()-1);
+            model.addAttribute("url",urlString);
+
+        }else {
+            model.addAttribute("url",url);
+        }
 
         return "search";
     }
+
+
 
 
     @GetMapping
@@ -45,8 +65,6 @@ public class SearchController {
     public Map searh(@RequestParam Map<String,String> searchMap){
         //特殊符号的处理
         this.handelSearhMap(searchMap);
-
-
         Map searchResult = searchService.search(searchMap);
         return searchResult;
 
