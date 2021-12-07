@@ -42,6 +42,12 @@ public class SpuController {
         return new Result(true,StatusCode.OK,"查询成功",spu);
     }
 
+    @GetMapping("/findSpuById/{id}")
+    public Result<Spu> findSpuById(@PathVariable String id){
+        Spu spu = spuService.findById(id);
+        return new Result(true,StatusCode.OK,"查询成功",spu);
+    }
+
 
     /***
      * 新增数据
@@ -62,7 +68,7 @@ public class SpuController {
      * @return
      */
     @PutMapping(value="/{id}")
-    public Result update(@RequestBody Spu spu,@PathVariable Long id){
+    public Result update(@RequestBody Spu spu,@PathVariable String id){
         spu.setId(id);
         spuService.update(spu);
         return new Result(true,StatusCode.OK,"修改成功");

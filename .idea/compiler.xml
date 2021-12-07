@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="changgou_service_page" />
         <module name="changgou_common_db" />
         <module name="changgou_eureka" />
         <module name="changgou_service_order_api" />
@@ -53,6 +54,7 @@
       <module name="changgou_service_goods_api" target="1.8" />
       <module name="changgou_service_order" target="1.8" />
       <module name="changgou_service_order_api" target="1.8" />
+      <module name="changgou_service_page" target="8" />
       <module name="changgou_service_search_api" target="8" />
       <module name="changgou_service_system" target="1.8" />
       <module name="changgou_service_system_api" target="1.8" />
@@ -83,6 +85,7 @@
       <module name="changgou_service_goods_api" options="-parameters" />
       <module name="changgou_service_order" options="-parameters" />
       <module name="changgou_service_order_api" options="-parameters" />
+      <module name="changgou_service_page" options="-parameters" />
       <module name="changgou_service_search_api" options="-parameters" />
       <module name="changgou_service_system" options="-parameters" />
       <module name="changgou_service_system_api" options="-parameters" />

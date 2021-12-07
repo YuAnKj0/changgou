@@ -24,6 +24,7 @@
         <module>changgou_service_config</module>
         <module>changgou-service-content</module>
         <module>changgou-service-search</module>
+        <module>changgou_service_page</module>
     </modules>
 
     <dependencies>
