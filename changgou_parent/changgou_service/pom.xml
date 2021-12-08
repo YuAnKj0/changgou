@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>changgou-service</artifactId>
+    <artifactId>changgou_service</artifactId>
 
     <packaging>pom</packaging>
     <description>
@@ -23,7 +23,7 @@
         <module>changgou_service_user</module>
         <module>changgou_service_config</module>
         <module>changgou-service-content</module>
-        <module>changgou-service-search</module>
+        <module>changgou_service_search</module>
         <module>changgou_service_page</module>
     </modules>
 

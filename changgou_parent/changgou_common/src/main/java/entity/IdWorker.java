@@ -77,7 +77,7 @@ public class IdWorker {
      *
      * @return
      */
-    public synchronized long nextId() {
+    public synchronized String nextId() {
         long timestamp = timeGen();
         if (timestamp < lastTimestamp) {
             throw new RuntimeException(String.format("Clock moved backwards.  Refusing to generate id for %d milliseconds", lastTimestamp - timestamp));
@@ -95,9 +95,9 @@ public class IdWorker {
         }
         lastTimestamp = timestamp;
         // ID偏移组合生成最终的ID，并返回ID
-        long nextId = ((timestamp - twepoch) << timestampLeftShift)
+        String nextId = String.valueOf(((timestamp - twepoch) << timestampLeftShift)
                 | (datacenterId << datacenterIdShift)
-                | (workerId << workerIdShift) | sequence;
+                | (workerId << workerIdShift) | sequence);
 
         return nextId;
     }
