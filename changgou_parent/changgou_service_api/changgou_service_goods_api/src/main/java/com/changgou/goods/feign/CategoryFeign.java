@@ -1,5 +1,6 @@
 package com.changgou.goods.feign;
 
+import com.changgou.goods.pojo.Category;
 import entity.Result;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -12,5 +13,5 @@ public interface CategoryFeign {
 
 
     @GetMapping("/category/{id}")
-    public Result findById(@PathVariable Integer id);
+    public Result<Category> findById(@PathVariable Integer id);
 }
