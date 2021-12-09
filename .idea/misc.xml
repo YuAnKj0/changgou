@@ -18,6 +18,7 @@
         <option value="$PROJECT_DIR$/changgou_parent/changgou_service/changgou_service_user/pom.xml" />
         <option value="$PROJECT_DIR$/changgou_parent/changgou_service_api/changgou_service_search_api/pom.xml" />
         <option value="$PROJECT_DIR$/changgou_parent/changgou_service/changgou_service_search/pom.xml" />
+        <option value="$PROJECT_DIR$/changgou_parent/changgou-user-oauth/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
