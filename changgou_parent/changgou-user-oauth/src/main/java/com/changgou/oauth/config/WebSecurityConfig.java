@@ -24,7 +24,8 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/oauth/login");
+        web.ignoring().antMatchers("/oauth/login",
+                "/oauth/logout","/oauth/toLogin","/login.html","/css/**","/data/**","/fonts/**","/img/**","/js/**");
     }
 
     /***
@@ -69,5 +70,8 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest()
                 .authenticated();       //其他请求都需要经过验证
 
+        //开启表单点登录
+        http.formLogin().loginPage("/oauth/login")//设置访问登陆页面的路径
+                .loginProcessingUrl("/oauth/login");//设置访问登陆操作的路径
     }
 }

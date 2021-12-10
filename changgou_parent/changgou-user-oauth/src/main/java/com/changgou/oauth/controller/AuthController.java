@@ -37,7 +37,10 @@ public class AuthController {
     @Value("${auth.cookieMaxAge")
     private int cookieMaxAge;
 
-
+    @RequestMapping("/toLogin")
+    public String toLogin(){
+        return "login";
+    }
 
     @RequestMapping("/login")
     @ResponseBody
