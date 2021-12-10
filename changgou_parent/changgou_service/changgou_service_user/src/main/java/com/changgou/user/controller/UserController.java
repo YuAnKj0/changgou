@@ -105,5 +105,12 @@ public class UserController {
         return new Result(true,StatusCode.OK,"查询成功",pageResult);
     }
 
+    @GetMapping("/load/{username}")
+    public User findUserInfo(@PathVariable String username){
+        User user = userService.findById(username);
+        return user;
+
+    }
+
 
 }
