@@ -7,6 +7,7 @@ import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,6 +37,7 @@ public class UserController {
      * @return
      */
     @GetMapping("/{username}")
+    @PreAuthorize("hasAnyAuthority('accountant')")
     public Result findById(@PathVariable String username){
         User user = userService.findById(username);
         return new Result(true,StatusCode.OK,"查询成功",user);

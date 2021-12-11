@@ -16,7 +16,7 @@
         <module>changgou_web</module>
         <module>changgou_common</module>
         <module>changgou_common_db</module>
-        <module>changgou-canal</module>
+        <module>changgou_canal</module>
     </modules>
 
     <parent>

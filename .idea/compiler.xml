@@ -11,8 +11,10 @@
         <module name="changgou_eureka" />
         <module name="changgou_service_order_api" />
         <module name="changgou-service-content" />
+        <module name="changgou_web_order" />
         <module name="changgou_service_order" />
         <module name="changgou_service_search" />
+        <module name="changgou_canal" />
         <module name="code-template" />
         <module name="changgou_service_config_api" />
         <module name="changgou_service_search_api" />
@@ -22,13 +24,11 @@
         <module name="changgou_service_config" />
         <module name="changgou_service_business_api" />
         <module name="changgou_service_user_api" />
-        <module name="changgou-canal" />
         <module name="changgou_service_business" />
         <module name="changgou_service_content_api" />
-        <module name="changgou_common" />
         <module name="changgou_service_file" />
+        <module name="changgou_common" />
         <module name="changgou_service_goods_api" />
-        <module name="changgou_web" />
         <module name="changgou_service_goods" />
       </profile>
     </annotationProcessing>
@@ -44,7 +44,7 @@
       <module name="changgou_eureka" target="1.8" />
       <module name="changgou_gateway" target="1.8" />
       <module name="changgou_gateway_system" target="8" />
-      <module name="changgou_gateway_web" target="8" />
+      <module name="changgou_gateway_web" target="1.8" />
       <module name="changgou_parent" target="1.8" />
       <module name="changgou_service" target="1.8" />
       <module name="changgou_service_api" target="1.8" />
@@ -66,6 +66,7 @@
       <module name="changgou_service_user" target="1.8" />
       <module name="changgou_service_user_api" target="1.8" />
       <module name="changgou_web" target="1.8" />
+      <module name="changgou_web_order" target="1.8" />
       <module name="code-template" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -80,7 +81,7 @@
       <module name="changgou_common" options="-parameters" />
       <module name="changgou_common_db" options="-parameters" />
       <module name="changgou_eureka" options="-parameters" />
-      <module name="changgou_gateway" options="-parameters" />
+      <module name="changgou_gateway" options="" />
       <module name="changgou_gateway_system" options="-parameters" />
       <module name="changgou_gateway_web" options="-parameters" />
       <module name="changgou_service_business" options="-parameters" />
@@ -101,6 +102,7 @@
       <module name="changgou_service_user" options="-parameters" />
       <module name="changgou_service_user_api" options="-parameters" />
       <module name="changgou_web" options="-parameters" />
+      <module name="changgou_web_order" options="-parameters" />
     </option>
   </component>
 </project>

@@ -19,13 +19,10 @@
         <option value="$PROJECT_DIR$/changgou_parent/changgou_service_api/changgou_service_search_api/pom.xml" />
         <option value="$PROJECT_DIR$/changgou_parent/changgou_service/changgou_service_search/pom.xml" />
         <option value="$PROJECT_DIR$/changgou_parent/changgou-user-oauth/pom.xml" />
-      </list>
-    </option>
-    <option name="ignoredFiles">
-      <set>
+        <option value="$PROJECT_DIR$/changgou_parent/changgou_gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/changgou_parent/changgou_web/changgou_web_order/pom.xml" />
         <option value="$PROJECT_DIR$/changgou_parent/changgou_canal/pom.xml" />
-        <option value="$PROJECT_DIR$/changgou_parent/changgou_service_api/changgou_service_system_api/pom.xml" />
-      </set>
+      </list>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK" />

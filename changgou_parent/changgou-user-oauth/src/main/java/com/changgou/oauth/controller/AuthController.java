@@ -34,7 +34,7 @@ public class AuthController {
     private String clientSecret;
     @Value("${auth.cookieDomain")
     private String cookieDomain;
-    @Value("${auth.cookieMaxAge")
+    @Value("${auth.cookieMaxAge}")
     private int cookieMaxAge;
 
     @RequestMapping("/toLogin")

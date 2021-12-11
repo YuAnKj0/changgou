@@ -62,7 +62,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         //String pwd = new BCryptPasswordEncoder().encode("szitheima");
         com.changgou.user.pojo.User user = userFeign.findUserInfo(username);
         //创建User对象
-        String permissions = "goods_list,seckill_list";
+        String permissions = "salesman,accountant,user";
 
 
         UserJwt userDetails = new UserJwt(username,user.getPassword(),AuthorityUtils.commaSeparatedStringToAuthorityList(permissions));

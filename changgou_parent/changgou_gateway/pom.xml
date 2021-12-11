@@ -12,7 +12,6 @@
     <artifactId>changgou_gateway</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>changgou_gateway_system</module>
         <module>changgou_gateway_web</module>
     </modules>
 
