@@ -3,16 +3,16 @@ package com.changgou.web.gateway.filter;
 import com.changgou.web.gateway.service.AuthService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.filter.OrderedFilter;
+
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
+import org.springframework.core.Ordered;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
-
 /**
  * @author Ykj
  * @ClassName AuthFilter
@@ -21,7 +21,7 @@ import reactor.core.publisher.Mono;
  */
 
 @Component
-public class AuthFilter implements GlobalFilter, OrderedFilter {
+public class AuthFilter implements GlobalFilter, Ordered  {
 
     @Autowired
     private AuthService authService;
@@ -36,7 +36,7 @@ public class AuthFilter implements GlobalFilter, OrderedFilter {
 
         //判断当前请求路径是否为登录请求，如果是，则直接放行
         String path = request.getURI().getPath();
-        if ("/api/oauth/login".equals(path)) {
+        if ("/api/oauth/login".equals(path)|| !UrlFilter.hasAuthorized(path)) {
             //直接放行
             return chain.filter(exchange);
         }
