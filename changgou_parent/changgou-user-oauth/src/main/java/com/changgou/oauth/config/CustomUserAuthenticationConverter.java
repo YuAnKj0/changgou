@@ -35,7 +35,6 @@ public class CustomUserAuthenticationConverter extends DefaultUserAuthentication
         }
         response.put("name", userJwt.getName());
         response.put("id", userJwt.getId());
-        //公司 response.put("compy", "songsi");
         if (authentication.getAuthorities() != null && !authentication.getAuthorities().isEmpty()) {
             response.put("authorities", AuthorityUtils.authorityListToSet(authentication.getAuthorities()));
         }

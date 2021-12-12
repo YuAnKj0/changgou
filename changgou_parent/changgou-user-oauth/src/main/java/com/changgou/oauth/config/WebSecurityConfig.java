@@ -4,7 +4,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -40,11 +39,6 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return manager;
     }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        super.configure(auth);
-    }
-
     /***
      * 采用BCryptPasswordEncoder对密码进行编码
      * @return
@@ -70,8 +64,8 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest()
                 .authenticated();       //其他请求都需要经过验证
 
-        //开启表单点登录
-        http.formLogin().loginPage("/oauth/login")//设置访问登陆页面的路径
-                .loginProcessingUrl("/oauth/login");//设置访问登陆操作的路径
+        //开启表单登录
+        http.formLogin().loginPage("/oauth/toLogin")//设置访问登录页面的路径
+                .loginProcessingUrl("/oauth/login");//设置执行登录操作的路径
     }
 }
