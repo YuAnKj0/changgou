@@ -71,5 +71,11 @@ public interface SkuService {
      */
     List<Sku> findByStatus(String status);
 
+    /**
+     *
+     * @param username
+     */
+    void decrCount(String username);
+
 
 }

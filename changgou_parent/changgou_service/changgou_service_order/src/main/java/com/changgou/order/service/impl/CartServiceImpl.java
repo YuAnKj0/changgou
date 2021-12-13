@@ -57,7 +57,7 @@ public class CartServiceImpl implements CartService {
             //封装orderItem
             orderItem=this.sku2OrderItem(sku,spu,num );
         }
-        //3.将orderItem 天机道Redis中
+        //3.将orderItem 添加到Redis中
         redisTemplate.boundHashOps(CART+username).put(skuId,orderItem);
 
     }

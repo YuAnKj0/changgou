@@ -1,5 +1,6 @@
 package com.changgou.order.controller;
 
+import com.changgou.order.config.TokenDecode;
 import com.changgou.order.pojo.Order;
 import com.changgou.order.service.OrderService;
 import com.github.pagehelper.Page;
@@ -41,6 +42,8 @@ public class OrderController {
         return new Result(true,StatusCode.OK,"查询成功",order);
     }
 
+@Autowired
+private TokenDecode tokenDecode;
 
     /***
      * 新增数据
@@ -49,6 +52,9 @@ public class OrderController {
      */
     @PostMapping
     public Result add(@RequestBody Order order){
+        //获取登陆人的名称
+        String username = tokenDecode.getUserInfo().get("username");
+        order.setUsername(username);
         orderService.add(order);
         return new Result(true,StatusCode.OK,"添加成功");
     }

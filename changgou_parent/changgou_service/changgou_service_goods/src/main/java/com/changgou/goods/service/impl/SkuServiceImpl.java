@@ -3,9 +3,11 @@ package com.changgou.goods.service.impl;
 import com.changgou.goods.dao.SkuMapper;
 import com.changgou.goods.pojo.Sku;
 import com.changgou.goods.service.SkuService;
+import com.changgou.order.pojo.OrderItem;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
@@ -110,6 +112,24 @@ public class SkuServiceImpl implements SkuService {
         Sku sku=new Sku();
         sku.setStatus(status);
         return skuMapper.select(sku);
+    }
+
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+    @Override
+    public void decrCount(String username) {
+        //1.获取购物中的数据
+        List<OrderItem> orderItemList = redisTemplate.boundHashOps("cart_" + username).values();
+
+        //2.循环的扣减库存呵增加销量
+        for (OrderItem orderItem : orderItemList) {
+            int count = skuMapper.decrCount(orderItem);
+            if (count<=0) {
+                throw new RuntimeException("库存不足，请重试");
+            }
+        }
+
     }
 
     /**
