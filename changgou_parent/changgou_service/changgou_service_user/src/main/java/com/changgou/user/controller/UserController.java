@@ -1,5 +1,6 @@
 package com.changgou.user.controller;
 
+import com.changgou.user.config.TokenDecode;
 import com.changgou.user.pojo.User;
 import com.changgou.user.service.UserService;
 import com.github.pagehelper.Page;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.Map;
 @RestController
@@ -111,6 +113,18 @@ public class UserController {
     public User findUserInfo(@PathVariable String username){
         User user = userService.findById(username);
         return user;
+
+    }
+
+    @Autowired
+    private TokenDecode tokenDecode;
+    @GetMapping("/points/add")
+    public Result addPoints(@RequestParam(value = "points") Integer points){
+        //获取用户名
+        String username = tokenDecode.getUserInfo().get("username");
+
+        userService.addPoints(username,points);
+        return new Result(true,StatusCode.OK,"用户积分增加成功");
 
     }
 

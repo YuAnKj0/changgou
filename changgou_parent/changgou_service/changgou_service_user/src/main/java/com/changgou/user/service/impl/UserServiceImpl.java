@@ -104,6 +104,11 @@ public class UserServiceImpl implements UserService {
         return (Page<User>)userMapper.selectByExample(example);
     }
 
+    @Override
+    public int addPoints(String username, Integer points) {
+        return userMapper.addPoints(username,points);
+    }
+
     /**
      * 构建查询对象
      * @param searchMap

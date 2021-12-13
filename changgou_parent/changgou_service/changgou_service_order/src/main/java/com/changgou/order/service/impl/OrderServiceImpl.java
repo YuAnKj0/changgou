@@ -8,6 +8,7 @@ import com.changgou.order.pojo.Order;
 import com.changgou.order.pojo.OrderItem;
 import com.changgou.order.service.CartService;
 import com.changgou.order.service.OrderService;
+import com.changgou.user.feign.UserFeign;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private SkuFeign skuFeign;
+    @Autowired
+    private UserFeign userFeign;
     /**
      * 增加
      * @param order
@@ -90,6 +93,9 @@ public class OrderServiceImpl implements OrderService {
         }
         //扣减库存增加销量
         skuFeign.decrCount(order.getUsername());
+        //增加用户积分
+        userFeign.addPoints(10);
+
         //5.删除购物车的数据(redis)
         redisTemplate.delete("cart_"+order.getUsername());
     }
@@ -149,6 +155,9 @@ public class OrderServiceImpl implements OrderService {
         Example example = createExample(searchMap);
         return (Page<Order>)orderMapper.selectByExample(example);
     }
+
+
+
 
     /**
      * 构建查询对象
