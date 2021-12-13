@@ -1,8 +1,8 @@
 package com.changgou.web.order.controller;
 
 import com.changgou.order.feign.CartFeign;
-import entity.Result;
-import entity.StatusCode;
+import com.changgou.entity.Result;
+import com.changgou.entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

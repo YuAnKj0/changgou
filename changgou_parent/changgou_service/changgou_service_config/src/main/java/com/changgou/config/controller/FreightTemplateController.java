@@ -3,9 +3,9 @@ package com.changgou.config.controller;
 import com.changgou.config.pojo.FreightTemplate;
 import com.changgou.config.service.FreightTemplateService;
 import com.github.pagehelper.Page;
-import entity.PageResult;
-import entity.Result;
-import entity.StatusCode;
+import com.changgou.entity.PageResult;
+import com.changgou.entity.Result;
+import com.changgou.entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

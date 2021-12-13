@@ -25,7 +25,7 @@ public class AuthFilter implements GlobalFilter, Ordered  {
 
     @Autowired
     private AuthService authService;
-
+    private static final String LOGIN_URL="http://localhost:8001/api/oauth/toLogin";
 
 
     @Override
@@ -44,16 +44,21 @@ public class AuthFilter implements GlobalFilter, Ordered  {
         String jti=authService.getJtiFromCookie(request);
         if (StringUtils.isEmpty(jti)){
             //jujue 访问
-            response.setStatusCode(HttpStatus.UNAUTHORIZED);
-            return response.setComplete();
+//            response.setStatusCode(HttpStatus.UNAUTHORIZED);
+//            return response.setComplete();
+            //跳转登录页面
+            return this.toLoginPage(LOGIN_URL+"FROM"+request.getURI().getPath(),exchange);
+
         }
 
         //3.从redis中获取jwt的值，如果改制不存在，拒绝本次访问
         String jwt=authService.getJwtFromRedis(jti);
         if (StringUtils.isEmpty(jwt)) {
             //jujue 访问
-            response.setStatusCode(HttpStatus.UNAUTHORIZED);
-            return response.setComplete();
+//            response.setStatusCode(HttpStatus.UNAUTHORIZED);
+//            return response.setComplete();
+            //跳转登录页面
+            return this.toLoginPage(LOGIN_URL,exchange);
         }
 
         //4.对当前的请求对象增强，让他携带令牌的信息
@@ -61,6 +66,14 @@ public class AuthFilter implements GlobalFilter, Ordered  {
 
 
         return chain.filter(exchange);
+    }
+
+    //跳转登录页
+    private Mono<Void> toLoginPage(String loginUrl, ServerWebExchange exchange) {
+        ServerHttpResponse response=exchange.getResponse();
+        response.setStatusCode(HttpStatus.SEE_OTHER);
+        response.getHeaders().set("location",loginUrl);
+        return response.setComplete();
     }
 
     //设置当前过滤器的执行优先级，值越小，优先级越高

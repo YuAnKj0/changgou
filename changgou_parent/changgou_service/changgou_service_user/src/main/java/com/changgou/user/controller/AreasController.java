@@ -3,9 +3,9 @@ package com.changgou.user.controller;
 import com.changgou.user.pojo.Areas;
 import com.changgou.user.service.AreasService;
 import com.github.pagehelper.Page;
-import entity.PageResult;
-import entity.Result;
-import entity.StatusCode;
+import com.changgou.entity.PageResult;
+import com.changgou.entity.Result;
+import com.changgou.entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

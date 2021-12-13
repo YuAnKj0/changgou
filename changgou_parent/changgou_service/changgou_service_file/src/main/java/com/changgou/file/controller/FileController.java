@@ -2,8 +2,8 @@ package com.changgou.file.controller;
 
 import com.changgou.file.util.FastDFSClient;
 import com.changgou.file.util.FastDFSFile;
-import entity.Result;
-import entity.StatusCode;
+import com.changgou.entity.Result;
+import com.changgou.entity.StatusCode;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;

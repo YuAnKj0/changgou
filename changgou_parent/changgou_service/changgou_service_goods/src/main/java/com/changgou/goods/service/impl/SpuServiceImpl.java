@@ -6,7 +6,7 @@ import com.changgou.goods.pojo.*;
 import com.changgou.goods.service.SpuService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import entity.IdWorker;
+import com.changgou.entity.IdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;

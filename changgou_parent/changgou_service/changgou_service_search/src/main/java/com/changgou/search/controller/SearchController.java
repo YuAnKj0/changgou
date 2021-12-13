@@ -3,7 +3,7 @@ package com.changgou.search.controller;
 
 import com.changgou.search.pojo.SkuInfo;
 import com.changgou.search.service.SearchService;
-import entity.Page;
+import com.changgou.entity.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

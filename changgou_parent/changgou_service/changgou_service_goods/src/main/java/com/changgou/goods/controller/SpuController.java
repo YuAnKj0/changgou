@@ -4,9 +4,9 @@ import com.changgou.goods.pojo.Goods;
 import com.changgou.goods.pojo.Spu;
 import com.changgou.goods.service.SpuService;
 import com.github.pagehelper.Page;
-import entity.PageResult;
-import entity.Result;
-import entity.StatusCode;
+import com.changgou.entity.PageResult;
+import com.changgou.entity.Result;
+import com.changgou.entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

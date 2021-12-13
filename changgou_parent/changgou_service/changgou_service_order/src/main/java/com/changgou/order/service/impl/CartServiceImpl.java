@@ -6,7 +6,6 @@ import com.changgou.goods.pojo.Sku;
 import com.changgou.goods.pojo.Spu;
 import com.changgou.order.pojo.OrderItem;
 import com.changgou.order.service.CartService;
-import entity.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -43,6 +42,10 @@ public class CartServiceImpl implements CartService {
             //2.如果商品在Redis中已经存在，则更新商品的数量和价钱
             //更新伤心的数量和价钱
             orderItem.setNum(orderItem.getNum()+num);
+            if (orderItem.getNum()<=0) {
+                redisTemplate.boundHashOps(CART+username).delete(skuId);
+                return;
+            }
             orderItem.setMoney(orderItem.getNum()*orderItem.getPrice());
             orderItem.setPayMoney(orderItem.getNum()*orderItem.getPrice());
         }else {
