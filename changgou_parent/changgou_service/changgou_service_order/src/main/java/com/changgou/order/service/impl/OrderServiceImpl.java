@@ -14,6 +14,7 @@ import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.Date;
@@ -64,6 +65,7 @@ public class OrderServiceImpl implements OrderService {
      * @param order
      */
     @Override
+    @Transactional
     public void add(Order order){
         //1.获取购物车的相关数据(redis)
         Map cartMap = cartService.list(order.getUsername());
@@ -96,6 +98,7 @@ public class OrderServiceImpl implements OrderService {
         //增加用户积分
         userFeign.addPoints(10);
 
+        int i=1/0;
         //5.删除购物车的数据(redis)
         redisTemplate.delete("cart_"+order.getUsername());
     }
