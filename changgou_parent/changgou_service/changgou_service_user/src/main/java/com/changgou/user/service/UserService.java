@@ -36,7 +36,7 @@ public interface UserService {
 
     /***
      * 删除
-     * @param id
+     * @param username
      */
     void delete(String username);
 
