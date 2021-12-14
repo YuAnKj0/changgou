@@ -219,7 +219,7 @@ let qrcode = new QRCode(document.getElementById("qrcode"), {
 	width : 240,
 	height : 240
 });
-qrcode.makeCode("weixin://wxpay/bizpayurl?pr=Y3hDTZy");
+qrcode.makeCode([[${code_url}]]);
 
 
 let client = Stomp.client('ws://127.0.0.1:15674/ws');
