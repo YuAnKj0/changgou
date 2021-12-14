@@ -42,6 +42,16 @@
             <artifactId>changgou_service_user_api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <!--fescar依赖-->
+        <dependency>
+            <groupId>com.changgou</groupId>
+            <artifactId>changgou_common_fescar</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.amqp</groupId>
+            <artifactId>spring-rabbit</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

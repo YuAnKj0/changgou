@@ -1,11 +1,16 @@
 package com.changgou.order.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fescar.spring.annotation.GlobalTransactional;
 import com.changgou.entity.IdWorker;
 import com.changgou.goods.feign.SkuFeign;
+import com.changgou.order.config.RabbitMQConfig;
 import com.changgou.order.dao.OrderItemMapper;
 import com.changgou.order.dao.OrderMapper;
+import com.changgou.order.dao.TaskMapper;
 import com.changgou.order.pojo.Order;
 import com.changgou.order.pojo.OrderItem;
+import com.changgou.order.pojo.Task;
 import com.changgou.order.service.CartService;
 import com.changgou.order.service.OrderService;
 import com.changgou.user.feign.UserFeign;
@@ -18,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -60,12 +66,15 @@ public class OrderServiceImpl implements OrderService {
     private SkuFeign skuFeign;
     @Autowired
     private UserFeign userFeign;
+
+    @Autowired
+    private TaskMapper taskMapper;
     /**
      * 增加
      * @param order
      */
     @Override
-    @Transactional
+    @GlobalTransactional(name = "order_add")
     public void add(Order order){
         //1.获取购物车的相关数据(redis)
         Map cartMap = cartService.list(order.getUsername());
@@ -98,7 +107,20 @@ public class OrderServiceImpl implements OrderService {
         //增加用户积分
         userFeign.addPoints(10);
 
-        int i=1/0;
+        //int i=1/0;
+        Task task=new Task();
+        task.setUpdateTime(new Date());
+        task.setCreateTime(new Date());
+        task.setMqExchange(RabbitMQConfig.EX_BUYING_ADDPOINTUSER);
+        task.setMqRoutingkey(RabbitMQConfig.CG_BUYING_ADDPOINT_KEY);
+        Map map=new HashMap();
+        map.put("username",order.getUsername());
+        map.put("point",order.getPayMoney());
+        map.put("orderId",orderId);
+        task.setRequestBody(JSON.toJSONString(map));
+        taskMapper.insertSelective(task);
+
+
         //5.删除购物车的数据(redis)
         redisTemplate.delete("cart_"+order.getUsername());
     }
