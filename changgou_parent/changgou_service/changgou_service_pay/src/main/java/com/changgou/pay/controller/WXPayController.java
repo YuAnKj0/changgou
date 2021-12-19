@@ -1,5 +1,6 @@
 package com.changgou.pay.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.changgou.entity.Result;
 import com.changgou.entity.StatusCode;
 import com.changgou.pay.config.RabbitMQConfig;
@@ -66,7 +67,7 @@ public class WXPayController {
                     message.put("transaction_id",result.get("transaction_id"));
 
                     //消息的发送
-                    rabbitTemplate.convertAndSend("", RabbitMQConfig.ORDER_PAY);
+                    rabbitTemplate.convertAndSend("", RabbitMQConfig.ORDER_PAY, JSON.toJSONString(message));
 
 
 

@@ -6,10 +6,12 @@ import com.changgou.entity.IdWorker;
 import com.changgou.goods.feign.SkuFeign;
 import com.changgou.order.config.RabbitMQConfig;
 import com.changgou.order.dao.OrderItemMapper;
+import com.changgou.order.dao.OrderLogMapper;
 import com.changgou.order.dao.OrderMapper;
 import com.changgou.order.dao.TaskMapper;
 import com.changgou.order.pojo.Order;
 import com.changgou.order.pojo.OrderItem;
+import com.changgou.order.pojo.OrderLog;
 import com.changgou.order.pojo.Task;
 import com.changgou.order.service.CartService;
 import com.changgou.order.service.OrderService;
@@ -19,7 +21,6 @@ import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.Date;
@@ -180,7 +181,37 @@ public class OrderServiceImpl implements OrderService {
         return (Page<Order>)orderMapper.selectByExample(example);
     }
 
+    @Autowired
+    private OrderLogMapper orderLogMapper;
 
+    @Override
+    public void updatePayStatus(String orderId, String transactionId) {
+        //查询订单
+        Order order = orderMapper.selectByPrimaryKey(orderId);
+        if (order!=null&&"0".equals(order.getPayStatus())){
+            //修改订单的支付状态
+            order.setPayStatus("1");
+            order.setOrderStatus("1");
+            order.setUpdateTime(new Date());
+            order.setPayTime(new Date());
+            order.setTransactionId(transactionId);//微信返回的交易流水号
+
+            orderMapper.updateByPrimaryKey(order);
+            //记录订单的日志
+            OrderLog orderLog=new OrderLog();
+            orderLog.setId(idWorker.nextId());
+            orderLog.setOperater("system");
+            orderLog.setOperateTime(new Date());
+            orderLog.setOrderStatus("1");
+            orderLog.setPayStatus("1");
+            orderLog.setRemarks("交易流水号："+transactionId);
+            orderLog.setOrderId(orderId);
+            orderLogMapper.insert(orderLog);
+        }
+
+
+
+    }
 
 
     /**
