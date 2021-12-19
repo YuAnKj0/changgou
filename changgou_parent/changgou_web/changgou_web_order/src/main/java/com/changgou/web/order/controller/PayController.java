@@ -54,6 +54,14 @@ public class PayController {
 
     }
 
+    //支付方成功页面的跳转
+    @GetMapping("/toPaySuccess")
+    public String toPaySuccess(Integer payMoney,Model model){
+        model.addAttribute("payMoney",payMoney);
+        return "paysuccess";
+
+    }
+
 
 
 }
