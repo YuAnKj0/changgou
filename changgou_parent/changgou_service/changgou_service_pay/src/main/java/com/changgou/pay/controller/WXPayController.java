@@ -8,10 +8,7 @@ import com.changgou.utils.ConvertUtils;
 import com.github.wxpay.sdk.WXPayUtil;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -89,11 +86,22 @@ public class WXPayController {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+         //////////////////////////////////////////////////////////////////////////////
 
+    //基于微信查询订单
+    @GetMapping("/query/{orderId}")
+    public Result quertOrder(@PathVariable("orderId") String orderId){
+        Map map=wxPayService.quertOrder(orderId);
+        return new Result(true,StatusCode.OK,"查询订单成功",map);
+    }
 
-
-
-
+    //基于微信关闭订单
+    @PutMapping("/close/{orderId}")
+    public Result closeOrder(@PathVariable("orderId") String orderId){
+        Map map=wxPayService.closeOrder(orderId);
+        return new Result(true,StatusCode.OK,"关闭订单成功",map);
 
     }
 }
+

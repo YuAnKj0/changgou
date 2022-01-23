@@ -134,12 +134,6 @@ public class SkuServiceImpl implements SkuService {
 
     }
 
-    @Override
-    @Transactional
-    public void resumeStockNum(String skuId, Integer num) {
-        skuMapper.resumeStockNum(skuId,num);
-    }
-
     /**
      * 构建查询对象
      * @param searchMap

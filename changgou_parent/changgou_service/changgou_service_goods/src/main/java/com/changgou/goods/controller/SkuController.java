@@ -6,7 +6,6 @@ import com.github.pagehelper.Page;
 import com.changgou.entity.PageResult;
 import com.changgou.entity.Result;
 import com.changgou.entity.StatusCode;
-import org.apache.zookeeper.data.Stat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -135,12 +134,6 @@ public class SkuController {
         skuService.decrCount(username);
         return new Result(true,StatusCode.OK,"库存扣减成功");
 
-    }
-
-    @RequestMapping("/resumeStockNum")
-    public Result resumeStockNum(@RequestParam("skuId") String skuId,@RequestParam("num") Integer num){
-        skuService.resumeStockNum(skuId,num);
-        return new Result(true,StatusCode.OK,"回滚成功");
     }
 
 
