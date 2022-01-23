@@ -29,6 +29,8 @@ public class RabbitMQConfig {
     //完成添加积分路由key
     public static final String CG_BUYING_FINISHADDPOINT_KEY = "finishaddpoint";
 
+    public static final String ORDER_PAY="order_pay";
+
     //声明交换机
     @Bean(EX_BUYING_ADDPOINTUSER)
     public Exchange EX_BUYING_ADDPOINTUSER(){
@@ -60,5 +62,9 @@ public class RabbitMQConfig {
     public Binding BINDING_CG_BUYING_FINISHADDPOINT(@Qualifier(CG_BUYING_FINISHADDPOINT) Queue queue,@Qualifier(EX_BUYING_ADDPOINTUSER) Exchange exchange){
         return BindingBuilder.bind(queue).to(exchange).with(CG_BUYING_FINISHADDPOINT_KEY).noargs();
     }
+
+    @Bean
+    public Queue queue(){
+        return new Queue(ORDER_PAY);}
     
 }
