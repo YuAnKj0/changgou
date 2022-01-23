@@ -2,6 +2,7 @@ package com.changgou.goods.service;
 
 import com.changgou.goods.pojo.Sku;
 import com.github.pagehelper.Page;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
@@ -78,4 +79,7 @@ public interface SkuService {
     void decrCount(String username);
 
 
+
+    @Transactional
+    void resumeStockNum(String skuId, Integer num);
 }

@@ -71,4 +71,20 @@ public class WXPayServieceImpl implements WXPayService {
             return null;
         }
     }
+
+    @Override
+    public Map closeOrder(String orderId) {
+        try{
+            Map<String,String> map=new HashMap();
+            map.put("out_trade_no",orderId);
+
+
+            Map<String, String> resultMap = wxPay.closeOrder(map);
+            return resultMap;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+
+    }
 }
