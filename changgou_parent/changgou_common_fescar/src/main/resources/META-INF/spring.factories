@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.changgou.fescar.config.FescarAutoConfiguration
+com.changgou.seckill.fescar.config.FescarAutoConfiguration

@@ -25,6 +25,7 @@
         <option value="$PROJECT_DIR$/changgou_parent/changgou_common_fescar/pom.xml" />
         <option value="$PROJECT_DIR$/changgou_parent/changgou_service_api/pom.xml" />
         <option value="$PROJECT_DIR$/changgou_parent/changgou_service_api/changgou_service_pay_api/pom.xml" />
+        <option value="$PROJECT_DIR$/changgou_parent/changgou_service/changgou_service_seckill/pom.xml" />
       </list>
     </option>
   </component>
