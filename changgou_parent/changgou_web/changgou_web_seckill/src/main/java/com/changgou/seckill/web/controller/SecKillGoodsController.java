@@ -1,4 +1,4 @@
-package com.changgou.seckill.controller;
+package com.changgou.seckill.web.controller;
 
 import com.changgou.seckill.entity.Result;
 import com.changgou.seckill.feign.SeckillGoodsFeign;

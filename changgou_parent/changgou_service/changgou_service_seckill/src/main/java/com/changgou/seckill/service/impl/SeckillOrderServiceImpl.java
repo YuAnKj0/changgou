@@ -3,6 +3,7 @@ package com.changgou.seckill.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.changgou.seckill.config.ConfirmMessageSender;
 import com.changgou.seckill.config.RabbitMQConfig;
+import com.changgou.seckill.dao.SeckillOrderMapper;
 import com.changgou.seckill.entity.IdWorker;
 import com.changgou.seckill.pojo.SeckillGoods;
 import com.changgou.seckill.pojo.SeckillOrder;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class SeckillOrderServiceImpl implements SeckillOrderService {
 
@@ -23,6 +25,8 @@ public class SeckillOrderServiceImpl implements SeckillOrderService {
     private IdWorker idWorker;
     @Autowired
     private ConfirmMessageSender confirmMessageSender;
+    @Autowired
+    private SeckillOrderMapper seckillOrderMapper;
 
     public static final String SECKILL_GOODS_KEY="seckill_goods_";
     public static final String SECKILL_GOODS_STOCK_COUNT_KEY="seckill_goods_stock_count_";
@@ -38,6 +42,20 @@ public class SeckillOrderServiceImpl implements SeckillOrderService {
          * 3.如果扣减后的库存值西《=0，则删除redis中相应的商品信息与库存信息
          * 4.基于MQ完成MySQL的数据同步，进行异步下单并扣减库存
          */
+
+        //        防止用户恶意刷单
+
+        String result = this.preventRepeatCommit(username, id);
+        if ("fail".equals(result)){
+            return false;
+        }
+
+        //防止相同商品重复购买:在根据username和id查询秒杀订单的数据库，如果有记录就返回FALSE
+        SeckillOrder order = seckillOrderMapper.getOrderInfoByUserNameAndGoodsId(username, id);
+        if (order!=null){
+            return false;
+        }
+
         //获取商品的信息
         SeckillGoods seckillGoods = (SeckillGoods) redisTemplate.boundHashOps(SECKILL_GOODS_KEY + time).get(id);
         String redisStock = (String) redisTemplate.opsForValue().get(SECKILL_GOODS_STOCK_COUNT_KEY + id);
@@ -75,5 +93,19 @@ public class SeckillOrderServiceImpl implements SeckillOrderService {
         confirmMessageSender.sendMessage("", RabbitMQConfig.SECKILL_ORDER_QUEUE, JSON.toJSONString(seckillOrder));
 
         return true;
+    }
+    private String preventRepeatCommit(String username,Long id){
+        String redis_key="seckill_user_"+username+"_id_"+id;
+        long count = redisTemplate.opsForValue().increment(redis_key, 1);
+        if (count==1){
+            //当前用户第一次访问
+            //对当前的key设置5分钟有效期
+            redisTemplate.expire(redis_key,5, TimeUnit.MINUTES);
+            return "success";
+        }
+        if (count>1){
+            return "fail";
+        }
+        return "fail";
     }
 }
